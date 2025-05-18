@@ -101,12 +101,9 @@ ___
 
 <br />
 
-## 5. Horoscope Sign Checker
-Write a program that prints the zodiac sign(Aries, Taurus, Gemini, etc.) based on a person’s birth month. Make it month bases, not date based. Like March and April borns are Aries, Aplil and May born are Taurus, and so on. Do not use if-else.
-
 <br />
 
-## ✅ 6. Which Triangle?
+## ✅ 5. Which Triangle?
 A triangle has 3 sides. A Triangle type is determined by its sides:
 - All sides equal is called, `Equilateral Triangle`.
 - Two sides equal is called, `Isosceles Triangle`.
