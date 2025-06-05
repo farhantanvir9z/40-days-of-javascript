@@ -7,7 +7,7 @@
 const user = { name: "Alex", age: undefined };
 console.log(user.age ?? "Not provided");
 ```
-> ## Solved!
+## Solve
 
 ### The output is 
 
@@ -16,11 +16,11 @@ console.log(user.age ?? "Not provided");
 ```
 
 
-> ### Because, `??` operator checks if the the value of `user.age` is `undefined` or `null` or not. if so the value of `user.age` will be `"Not provided"`. otherwise the value of `user.age` remain the same as before. 
+ ### Because, `??` operator checks if the the value of `user.age` is `undefined` or `null` or not. if so the value of `user.age` will be `"Not provided"`. otherwise the value of `user.age` remain the same as before. 
 
 <br />
 
-> ### So, the result of the code above is `"Not provided"`
+ ### So, the result of the code above is `"Not provided"`
 
 ___
 
@@ -34,9 +34,9 @@ obj.a = 2;
 console.log(obj.a); // 1
 ```
 
-> ## Solved!
+## Solve
 
-> ### if we try to modify a frozen object, the object will not be modified. Rather than it will remain unchanged. 
+ ### if we try to modify a frozen object, the object will not be modified. Rather than it will remain unchanged. 
 
 ___ 
 
@@ -57,7 +57,7 @@ const person = {
 };
 ```
 
-> ## Solved!
+## Solve
 
 ```js
 const person = {
@@ -83,9 +83,9 @@ ___
 - Store student details in an object (name, age, grades).
 - Implement a method to calculate the average grade.
 
-> ## Solved!
+## Solve
 
-> ## I will calculate the grades based on the chart mentioned below
+ ## I will calculate the grades based on the chart mentioned below
 
 | Grade point | Grade |
 | -------------- | --------------------------- |
@@ -104,7 +104,7 @@ function Student(name = "", age = 18, grades = []){
   this.grades = grades;
   this.avgGrade = function() {
     const grades = this.grades;
-    const totalGrade = grades.reduce((preVal, currentVal) => {
+    const totalGrade = grades.reduce((preVal, currentVal) = {
       preVal += currentVal;
       return preVal;
     }
@@ -122,7 +122,7 @@ console.log(student1.avgGrade());
 - Store books in an object.
 - Add functionality to check availability and restock books.
 
-> ## Solved! 
+## Solve 
 
 ```js
 const books = {
@@ -140,7 +140,7 @@ const books = {
   },
   isAvailable : function(bookId) { 
   
-    if (this[bookId]?.quantity > 0) {
+    if (this[bookId]?.quantity  0) {
       console.log(`${bookId} is available.`);
     } else {
       console.log(`Sorry, ${bookId} is not available.`);
@@ -165,11 +165,11 @@ ___
 
 ## 6. What is the difference between `Object.keys()` and `Object.entries()`? Explain with examples
 
-> ## Solved!
+## Solve
 
 <br />
 
-> ### The difference between `Object.keys()` and `Object.entries()` is ...
+ ### The difference between `Object.keys()` and `Object.entries()` is ...
 
  - #### `Object.keys()` returns an array of keys only 
 __On the other hand,__ 
@@ -191,9 +191,9 @@ ___
 
 ## 7. How do you check if an object has a certain property?
 
-> ## Solved! 
+## Solve 
 
-> #### I will use `Object.hasOwn(objectName, propertyName)` to check if an object has a certain property?
+ #### I will use `Object.hasOwn(objectName, propertyName)` to check if an object has a certain property?
 
 ```js
 const player = {
@@ -211,12 +211,12 @@ newPerson.name = "Doe";
 console.log(person.name);
 ```
 
-> ### The output will be
+ ### The output will be
 
 ```sh
 "Doe"
 ```
-> **Because** Now `newPerson` and `person` are pointing to the same reference. So, while the `newPerson.name` is changed the `person.name` will be changed too.
+ **Because** Now `newPerson` and `person` are pointing to the same reference. So, while the `newPerson.name` is changed the `person.name` will be changed too.
 
 ### So the result will be `Doe`
 
@@ -226,7 +226,7 @@ ___
 
 ## 9. What’s the best way to deeply copy a nested object? Explain with examples
 
-> ### The best way to deeply copy a nested object is to use `structuredClone()` method.
+ ### The best way to deeply copy a nested object is to use `structuredClone()` method.
 
 ```js
 const user1 = {
@@ -273,7 +273,7 @@ const users = [
 ];
 ```
 
-> ## Solved!
+## Solve
 
 ```js
 for (const {name, address, age} of users){
