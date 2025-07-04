@@ -60,3 +60,4 @@ function createExpenseTracker(userName = "", initialBudget = 0) {
 }
 const user = createExpenseTracker("Farhan", 20000);
 console.log(user);
+
