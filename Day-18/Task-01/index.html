@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dynamic Form</title>
+<link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script src="./tailwind.js"></script>
+   
+</head>
+  
+<body>
+  <div class="shadow-lg shadow-black flex flex-col items-center">
+  <form method="get" class="min-h-[300px] w-[300px] max-h-[auto] md:w-[1000px] flex flex-col gap-y-5 p-5!">
+  <h2 class="fieldType">field type</h2>
+  <div class="selectItem"> 
+  <select name="" id="select">
+    <option value="text">Text</option>
+    <option value="email">Email</option>
+    <option value="number">Number</option>
+  </select>
+  <button class="addBtn">Add field</button>
+  </div>
+  </form>
+  <div class="submit-reset">
+    <button class="submit srbtn">Submit</button>
+    <button class="reset srbtn">Reset</button>
+  </div>
+</div>
+</body>
+</html>

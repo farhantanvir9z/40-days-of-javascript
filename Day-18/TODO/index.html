@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/19.1.1/cjs/react.production.min.js" integrity="sha512-Dh5HFQwhmk6EAd5teiamYFXjDBgXIyIHH+FBmHmlMw9RzUhhjScU9Y9JSGbIQtnQqmZax+OSeq7qNjDiBW4Opg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="./script.js"></script>
+</head>
+
+<body>
+    <h2>Task Manager</h2>
+
+    <input type="text" id="taskInput" placeholder="New Task">
+    <button onclick="addTask()">Add Task</button>
+
+    <input type="text" id="searchInput" placeholder="Search Tasks..." onkeyup="filterTasks()">
+    <ul id="taskList"></ul>
+
+</body>
+
+</html>

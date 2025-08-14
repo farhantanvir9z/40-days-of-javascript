@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Table</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dynamic Table</h1>
+
+    <!-- Form for adding rows -->
+    <form id="addForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <input type="text" id="role" placeholder="Role" required>
+        <button type="submit" id="submitBtn">Add</button>
+    </form>
+
+    <!-- Search bar -->
+    <input type="text" id="filter" placeholder="Search by name" onkeyup="filter()">
+
+    <!-- Table -->
+    <table id="dataTable">
+
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Role</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+              
+            </tbody>
+        
+          
+    </table>
+</div>
+
+</body>
+</html>
