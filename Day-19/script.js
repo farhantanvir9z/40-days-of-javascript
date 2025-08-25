@@ -30,7 +30,7 @@ navBar.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (e) => {
-    if (e.key === "1") switchToTab(1);
-    if (e.key === "2") switchToTab(2);
-    if (e.key === "3") switchToTab(3);
+    if (e.key === "1") switchToTab("1");
+    if (e.key === "2") switchToTab("2");
+    if (e.key === "3") switchToTab("3");
     });
