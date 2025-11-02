@@ -1,0 +1,52 @@
+{
+Primary Background,Main app background (dark gray-black),
+#121212
+
+Secondary Background,Navigation bar and subtle overlays (darker gray),
+#0A0A0A
+
+Card Background 1,"Top-left card (Inception, blue-gray)",
+
+#1E3A5F
+
+Icon Overlay,Play buttons and clapperboard icons (white),
+#FFFFFF
+
+Text Primary,Movie titles and labels (light gray-white),
+#F5F5F5
+Text Secondary,Dropdown labels and placeholders (medium gray),
+#9CA3AF
+
+Accent Blue,Search bar highlight and + button,
+#3B82F6
+Navigation Active,Bottom tab icons/labels (light gray),
+#D1D5DB
+Navigation Inactive,Bottom tab backgrounds (dark gray),
+#1F2937
+Border/Subtle Shadow,Card edges and dividers (very dark gray),
+#1F2937
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  padding: ;
+}
+header {
+  
+}
+main {
+  
+}
+footer {
+  
+}
