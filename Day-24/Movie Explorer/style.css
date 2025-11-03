@@ -36,17 +36,26 @@ Border/Subtle Shadow,Card edges and dividers (very dark gray),
   text-decoration: none;
 }
 
-body {
+ body {
   background-color: #121212;
   color: #ffffff;
-  padding: ;
-}
-header {
+  padding: 16px;
   
+} 
+header {
+  background-color: #f58686;
 }
+header .myLogo {
+  font-family: cursive;
+  font-size: 25px;
+  font-weight: bold;
+}
+header .search-section .searchInputBox input{
+  width: 100%;
+  background-color: yellow;
+}
+
 main {
   
 }
-footer {
-  
-}
+
