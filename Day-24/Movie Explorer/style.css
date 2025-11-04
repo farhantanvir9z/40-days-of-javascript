@@ -1,25 +1,3 @@
-/* {
-Primary Background,Main app background (dark gray-black),
-#121212
-
-Secondary Background,Navigation bar and subtle overlays (darker gray),
-#0A0A0A
-
-
-Text Primary,Movie titles and labels (light gray-white),
-#F5F5F5
-Text Secondary,Dropdown labels and placeholders (medium gray),
-#9CA3AF
-
-Accent Blue,Search bar highlight and + button,
-#3B82F6
-Navigation Active,Bottom tab icons/labels (light gray),
-#D1D5DB
-Navigation Inactive,Bottom tab backgrounds (dark gray),
-#1F2937
-Border/Subtle Shadow,Card edges and dividers (very dark gray),
-#1F2937
-} */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
 * {
   padding: 0;
@@ -93,6 +71,7 @@ cursor: pointer;
   color: #9CA3AF;
 }
 .movie-container {
+  min-height: 400px;
   height: auto;
   width: 100%;
   background-color: #0A0A0A;
@@ -108,18 +87,18 @@ cursor: pointer;
 .movie-box {
   width: 300px;
   height: 300px;
-  padding: 20px;
+  padding: 20px 20px 30px 20px;
   background-color: #131313;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 box-shadow: 0 4px 8px 0 rgba(94, 93, 93, 0.6);
   border-radius: 12px;
 }
 .movie-box .poster {
   width: 100%;
-  height: 120px;
+  height: 150px;
 }
 .movie-box .poster:hover {
   transform: scale(1.05);
@@ -136,7 +115,84 @@ box-shadow: 0 4px 8px 0 rgba(94, 93, 93, 0.6);
   transition: color 0.3s linear;
 }
 
+.movie-release-date {
+  color: #9CA3AF;
+  font-weight: 700;
+}
+
 .error {
   color: red;
   font-size: 25px;
+}
+footer {
+  width: 100%;
+  height: 200px;
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0A0A0A;
+}
+
+footer .social-icons {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .social-icons a i {
+  font-size: 24px;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: floralwhite;
+  border-radius: 50%;
+}
+footer .social-icons a i:hover {
+  transform: scale(1.08);
+  transition: all 0.3s linear;
+}
+
+#fb {
+ background-color: #FFFFFF;
+  color: #1877F2;
+}
+#fb:hover { 
+  background-color: #1877F2;
+  color: #FFFFFF;
+}
+#tw {
+   background-color: #FFFFFF;
+  color: #000000;
+}
+#tw:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+#linkedin {
+  color: #0077B5;
+  background-color: #FFFFFF;
+} 
+#linkedin:hover {
+  background-color: #0077B5;
+  color: #FFFFFF;
+}
+
+#gh {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+#gh:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+footer p {
+  font-size: 18px;
+  color: #ffffff;
 }
