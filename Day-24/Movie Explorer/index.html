@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Exploria - Explore the movies</title>
+  <title>Exploria — explore movies seemlessly.</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="./script.js"></script>
+  <script defer src="script.js"></script>
+
 </head>
+
 <body>
   <header>
-    <section class="search-section">
-      <h1 class="myLogo">Exploria</h1>
-    <div class="searchInputBox">
-      <input type="text" placeholder="Search for movies..." class="searchInput">
-      <button class="searchBtn">
-        Search
-      </button>
+    <h1 class="logo">Exploria</h1>
+    <div class="search-input-section">
+      <input type="text" name="Search value" placeholder="Explore the Movies" class="search-input">
+      <span class="icon searchBtn"><i class="fa-solid fa-magnifying-glass"></i></span>
     </div>
-    </section>
+
   </header>
-  <main>
-    <div class="movie-card">
-      <div class="poster"></div>
-      <h4>BlackHat hacker</h4>
-      <span class="year">2015</span>
-    </div>
-  
+  <main class="movie-container">
+    <template class="movie-box-template">
+          <img src="UI.jpg" alt="poster" class="poster">
+        <h2 class="movie-title">Lorem ipsum dolor sit amet.</h2>
+        <p class="movie-release-date">Release Date: 2023-10-10</p>
+
+    </template>
+   
   </main>
-<footer>
-  <p>made with &hearts; by Farhan.</p>
-  <p>&copy; 2019 - 2026</p>
-</footer>
+  
 </body>
+
 </html>
