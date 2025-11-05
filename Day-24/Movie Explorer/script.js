@@ -48,7 +48,7 @@ function renderMovies(moviesArray) {
       });
     }
   } catch (error) {
-       showError("Failed to load movies. Please try again later.");
+       showError("Opps! No movie found.");
     console.error(error);
   }
 }
@@ -69,7 +69,7 @@ function createMovieBox(Title = "Movie title", Poster = "default-movie-poster.pn
 
   moviePoster.setAttribute("src", Poster);
   movieTitleElem.innerText = Title;
-  movieReleaseYearDisplayElem.innerText = Year;
+  movieReleaseYearDisplayElem.innerText = `Released on ${Year}`;
 
   const movieWrapperDiv = document.createElement("div");
   movieWrapperDiv.classList.add("movie-box");
