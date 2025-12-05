@@ -30,7 +30,16 @@ navBar.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (e) => {
-    if (e.key === "1") switchToTab("1");
-    if (e.key === "2") switchToTab("2");
-    if (e.key === "3") switchToTab("3");
-    });
+    if (e.key === "1") {
+        switchToTab("1");
+        document.querySelector('[data-tab="1"]').focus();
+    }
+    if (e.key === "2") {
+        switchToTab("2");
+        document.querySelector('[data-tab="2"]').focus();
+    }
+    if (e.key === "3") {
+        switchToTab("3");
+        document.querySelector('[data-tab="3"]').focus();
+    }
+});

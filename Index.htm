@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // create a promise
+const randNum = Math.floor(Math.random() * 100) + 1;
+const promise = new Promise((resolve, reject) => {
+  if (randNum > 50) {
+  resolve("hello successfully.")
+  } else {
+  resolve("Opps! 404 error.")
+  }
+})
+promise.then(
+  (result) => {
+    console.log(result)
+  },
+   (error) => {
+    console.error(error)
+  }
+  )
+  </script>
+</body>
+</html>
