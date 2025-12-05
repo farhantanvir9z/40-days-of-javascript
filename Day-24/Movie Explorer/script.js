@@ -3,7 +3,7 @@
 console.log("Js loaded successfully.");
 
 // base URL for OMDb (keeps the api key and base params)
-const BASE_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=17ee6f3f";
+const BASE_URL = "https://www.omdbapi.com/?i=tt3896198&apikey=17ee6f3f";
 
 // grab the bits from the page
 const searchInputElem = document.querySelector(".search-input");
