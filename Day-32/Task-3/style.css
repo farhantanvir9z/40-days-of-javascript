@@ -1,0 +1,184 @@
+/* Reset */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body {
+	background-color: #0b0b12;
+	color: #d1d1d1;
+	min-height: 100vh;
+	font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Header */
+header {
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	border-bottom: 1px solid #1f1f2e;
+}
+
+header h1 {
+	letter-spacing: 3px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+header .user {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background-color:#b5b5b510;
+	border-radius: 50%;
+}
+.user i {
+	font-size: 20px;
+}
+
+/* Layout */
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center ;
+	width: 100%;
+	gap: 20px;
+	padding: 40px 20px;
+}
+/* Blog container */
+
+.blogContainer{
+	width: 100%;
+}
+/* Blog Card */
+.blog {
+	max-width: 420px;
+	background: #11111b;
+	border-radius: 12px;
+	padding: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Blog Image */
+.blogPoster {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+/* Author */
+.author {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.author img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #1f1f2e;
+}
+
+.author-name {
+	font-size: 14px;
+	color: #4da3ff;
+	font-style: italic;
+}
+
+/* Title */
+.title {
+	font-size: 22px;
+	font-weight: 600;
+	color: #ffffff;
+	line-height: 1.3;
+}
+
+/* Description */
+.content {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #b5b5b5;
+}
+
+/* ============================= */
+/* Responsive Design Enhancements */
+/* ============================= */
+
+/* Make blog cards center properly */
+.blogContainer {
+	display: grid;
+	grid-template-columns: 1fr;
+	place-items: center;
+}
+
+/* Tablet view */
+@media (min-width: 640px) {
+	.blogContainer {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.blog {
+		max-width: 100%;
+	}
+}
+
+/* Laptop / Desktop view */
+@media (min-width: 1024px) {
+	.blogContainer {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		max-width: 1200px;
+	}
+
+	header h1 {
+		font-size: 32px;
+	}
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+	.blogContainer {
+		grid-template-columns: repeat(4, 1fr);
+		max-width: 1400px;
+	}
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+	.blog {
+		padding: 14px;
+	}
+
+	.title {
+		font-size: 18px;
+	}
+
+	.content {
+		font-size: 14px;
+	}
+
+	.blogPoster {
+		height: 180px;
+	}
+}

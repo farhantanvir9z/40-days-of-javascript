@@ -1,0 +1,150 @@
+/* Reset */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+body {
+	background-color: #0b0b12;
+	color: #d1d1d1;
+	min-height: 100vh;
+	font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Header */
+header {
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	border-bottom: 1px solid #1f1f2e;
+}
+
+header h1 {
+	letter-spacing: 3px;
+	font-weight: 600;
+	color: #ffffff;
+}
+
+header .user {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background-color:#b5b5b510;
+	border-radius: 50%;
+}
+.user i {
+	font-size: 20px;
+}
+
+/* Layout */
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center ;
+	width: 100%;
+	gap: 20px;
+	padding: 40px 20px;
+}
+/* Blog container */
+
+.userContainer{
+	width: 100%;
+}
+/* User Card */
+.userCard {
+	width: 100%;
+	max-width: 420px;
+	background: #11111b;
+	border-radius: 12px;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.userCard:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+}
+
+.userCard * {
+	margin-bottom: 5px;
+}
+
+.userImg {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+
+.userName {
+	font-size: 30px;
+	font-style: italic;
+font-family: 'Times New Roman';
+}
+.wrap {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	align-self: flex-start;
+	gap: 5px;
+}
+
+.email {
+	color: dodgerblue;
+}
+.userAddress {
+	color: rgba(255,255,255,0.6);
+}
+/* ============================= */
+/* Responsive Design Enhancements */
+/* ============================= */
+
+/* Make blog cards center properly */
+.userContainer {
+	display: grid;
+	grid-template-columns: 1fr;
+	place-items: center;
+}
+
+/* Tablet view */
+@media (min-width: 640px) {
+	.userContainer {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	
+}
+
+/* Laptop / Desktop view */
+@media (min-width: 1024px) {
+	.userContainer {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		max-width: 1200px;
+	}
+
+	header h1 {
+		font-size: 32px;
+	}
+}
+
+/* Large screens */
+@media (min-width: 1440px) {
+	.userContainer {
+		grid-template-columns: repeat(4, 1fr);
+		max-width: 1400px;
+	}
+}
