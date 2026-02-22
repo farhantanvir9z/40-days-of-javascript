@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script async 
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <script defer type="module" src="./src/main.js"></script>
+  </head>
+  <body class="bg-gray-100 p-3.5 md:p6">
+	<div class="max-w-4xl mx-auto space-y-6">
+		<h1 class="text-xl md:text-3xl font-semibold text-center"> 📚 Library Management System</h1>
+		<div class="flex flex-col xl:flex-row xl:justify-center gap-3">
+			<label for="switch-user" class="block xl:mx-5">Choose User view:</label>
+			<select name="switch-user" id="switch-user" class="border p-2 rounded outline-none">
+				<option value="admin">Admin</option>
+				<option value="Member" selected>Member</option>
+			</select>
+		</div>
+		
+		<section id="addBookSec" class="bg-white p-6 space-y-4 shadow-lg rounded-3xl">
+			<h2 class="text-xl md:text-2xl font-semibold text-center">Add new Book</h2>
+			<form id="bookForm" class="space-y-5">
+				<div>
+					<label for="title" class="font-semibold block">Title</label>
+					<input type="text" id="title" class="p-2 border rounded w-full" placeholder="Enter book title" required />
+				</div>
+				<div>
+					<label for="author" class="font-semibold block">Author</label>
+					<input type="text" id="author" class=" p-2   border rounded w-full" placeholder="Enter author name" required />
+				</div>
+				<div>
+					<label for="genre" class="font-semibold block">Genre</label>
+					<input type="text" id="genre" class="p-2   border rounded w-full" placeholder="Enter genre" required />
+				</div>
+				<button type="submit" class="bg-blue-600 text-white p-2 rounded w-32">Add book</button>
+			</form>
+		</section>
+		farhantanvir9z.github.io/
+		<section id="availableBookSec" class="bg-white shadow-lg rounded-3xl p-6 space-y-4">
+			<h2 class="text-xl font-semibold">Available Books</h2>
+			<ul id="availableBooks" class="space-y-2 text-[12px] md:text-lg">
+			</ul>
+		</section>
+		<section id="borrowedBookSec" class="bg-white shadow-lg rounded-3xl p-6 space-y-4">
+			<h2 class="text-xl font-semibold">Borrowed Books</h2>
+			<ul class="space-y-2 text-[12px] md:text-lg" id="borrowedBooks">
+			</ul>
+		</section>
+	</div>
+  </body>
+</html>
