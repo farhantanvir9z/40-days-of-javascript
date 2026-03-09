@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <script async src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer type="module" src="./main.js"></script>
+
+  <title>Performance Race: Search Strategies</title>
+</head>
+
+<body class="bg-zinc-950 min-h-screen w-full p-4 md:p-8 flex justify-center items-center text-white font-sans">
+  <!-- Main glowing card wrapper -->
+  <div class="relative w-full max-w-3xl group">
+    <!-- Background gradient glow effect (appears stronger on hover) -->
+    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+    
+    <!-- Main dark card container -->
+    <div class="relative bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[85vh]">
+      <!-- Top control bar with strategy buttons -->
+      <div class="p-6 border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-xl space-y-4">
+        <div id="strategies" class="grid grid-cols-3 gap-1 p-1 bg-zinc-950 rounded-xl border border-zinc-800">
+          <!-- Active strategy button (Debounce is selected by default) -->
+          <button class="py-2 text-[10px] font-black uppercase tracking-widest rounded-lg bg-indigo-600 text-white transition-all cursor-pointer">
+            Debounce
+          </button>
+          <!-- Inactive strategy buttons -->
+          <button class="py-2 text-[10px] font-black uppercase tracking-widest rounded-lg text-zinc-500 hover:text-zinc-300 transition-all cursor-pointer">
+            throttle
+          </button>
+          <button class="py-2 text-[10px] font-black uppercase tracking-widest rounded-lg text-zinc-500 hover:text-zinc-300 transition-all cursor-pointer">
+            Memoize
+          </button>
+        </div>
+      </div>
+      <!-- Search input area -->
+      <div class="px-6 pt-6 pb-2">
+        <div class="relative group/input">
+          <!-- Main search field -->
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search products..." 
+            class="w-full bg-zinc-800/40 border border-zinc-700 rounded-xl px-4 py-4 text-lg outline-none focus:ring-2 focus:ring-indigo-500 transition-all placeholder-zinc-600 group-hover/input:border-zinc-600"
+          />
+          <!-- Search icon (decorative) -->
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- Scrollable results area -->
+      <div class="flex-1 overflow-y-auto px-6 py-4 custom-scrollbar" id="results-viewport">
+         
+        <!-- Template product card -->
+        <template id="temp-product-card">
+          <div class="group relative w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 flex flex-col items-center gap-6 transition-all hover:bg-zinc-900 hover:border-indigo-500/40 shadow-xl">
+            <!-- Picture -->
+            <div class="relative shrink-0 animate-pulse">
+              <div class="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+              <div class="relative size-24 bg-zinc-800 rounded-xl flex items-center justify-center border border-zinc-700 overflow-hidden"></div>
+            </div>
+            <!-- description part -->
+            <div class="flex-1 text-center sm:text-left space-y-3 overflow-hidden">
+              <!-- Category & destributor part -->
+              <div class="flex flex-col items-center">
+                <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                  <span id="category" class="text-[10px] font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded-md">
+                  </span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-500/10 px-2 py-1 rounded-md">
+                    ny distributor
+                  </span>
+   
+                </div>
+                <h2 id="product-name" class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors truncate">
+                </h2>
+                <div class="flex items-center justify-center sm:justify-start gap-1 mt-1 text-amber-400">
+                  Ratings:
+                  <span id="ratings" class="text-xs font-bold font-mono">4.3</span>
+              </div>
+              </div>
+              <!-- Price & address part -->
+              <div class="flex items-center justify-center gap-4">
+                <span id="price" class="text-lg font-black text-white"></span>
+                <div class="h-4 w-px bg-zinc-800"></div>
+                <span id="city" class="text-xs text-zinc-500 italic"></span>
+              </div>
+            </div>
+            <!-- Add to cart part -->
+            <div class="shrink-0 w-full sm:w-auto">
+              <button class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-indigo-500/20 transition-all active:scale-95 cursor-pointer">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </template>
+        <!-- Skeleton -->
+        <div id="product-card-skeleton" class="group relative w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl p-5 flex flex-col items-center gap-6 animate-pulse hidden">
+  
+  <!-- Skeleton Picture -->
+  <div class="relative shrink-0">
+    <div class="size-24 bg-zinc-700 rounded-xl"></div>
+  </div>
+
+  <!-- Skeleton Description Part -->
+  <div class="flex-1 w-full space-y-4">
+    
+    <!-- Category & Distributor Shimmers -->
+    <div class="space-y-2">
+      <div class="flex justify-center sm:justify-start gap-2">
+        <div class="h-5 w-24 bg-zinc-800 rounded-md"></div>
+        <div class="h-5 w-24 bg-zinc-800 rounded-md"></div>
+      </div>
+      
+      <!-- Title Shimmer (Wireless Mouse) -->
+      <div class="h-7 w-3/4 mx-auto sm:mx-0 bg-zinc-800 rounded-lg"></div>
+      
+      <!-- Rating Shimmer -->
+      <div class="h-6 w-24 mx-auto sm:mx-0 bg-zinc-800/60 rounded-md"></div>
+    </div>
+
+    <!-- Price & Address Shimmers -->
+    <div class="flex items-center justify-center sm:justify-start gap-4">
+      <div class="h-6 w-24 bg-zinc-800 rounded-md"></div>
+      <div class="h-4 w-px bg-zinc-800"></div>
+      <div class="h-6 w-24 bg-zinc-800/60 rounded-md italic"></div>
+    </div>
+  </div>
+
+  <!-- Skeleton Button -->
+  <div class="shrink-0 w-full sm:w-auto">
+    <div class="w-full sm:w-32 h-10 bg-zinc-800 rounded-xl"></div>
+  </div>
+</div>
+        <div id="results-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        </div>
+      </div>
+      <!-- Bottom metrics dashboard -->
+      <div class="grid grid-cols-2 border-t border-zinc-800 bg-zinc-950 divide-x divide-zinc-900">
+
+        <!-- Total function calls counter -->
+        <div class="p-4 flex flex-col items-center">
+          <span class="text-[9px] text-zinc-500 uppercase font-black tracking-widest mb-1">Total Calls</span>
+          <div class="flex items-baseline gap-1">
+            <span id="function-calls" class="text-2xl font-mono font-bold text-indigo-400">0</span>
+          </div>
+        </div>
+        
+        <!-- Execution time display -->
+        <div class="p-4 flex flex-col items-center">
+          <span class="text-[9px] text-zinc-500 uppercase font-black tracking-widest mb-1">Exec Time</span>
+          <div class="flex items-baseline gap-1">
+            <span id="exec-time" class="text-2xl font-mono font-bold text-pink-400">0.00</span>
+            <span class="text-[10px] text-zinc-600">ms</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
