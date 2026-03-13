@@ -86,4 +86,4 @@ setTimeout(() => {
 }, 3000);
 ```
 
-[Task 3](./Task-3)
+[Task 3](./task-3)
